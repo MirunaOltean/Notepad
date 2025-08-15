@@ -1,0 +1,125 @@
+﻿<Window x:Class="Notepad__.ReplaceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notepad__"
+        mc:Ignorable="d"
+        Title="ReplaceWindow" Height="285.782" Width="572.868">
+    <Grid Margin="0,0,3.6,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="23.jpg"/>
+        </Grid.Background>
+        <TextBox 
+            HorizontalAlignment="Left" 
+            Name="mySearchTxt"
+            Height="29" 
+            Margin="140,85,0,0" 
+            TextWrapping="Wrap" 
+            Text="  Type something..." 
+            VerticalAlignment="Top" 
+            Width="251" 
+            FontSize="14" 
+            FontWeight="Bold" 
+            RenderTransformOrigin="0.499,0.581" 
+            SelectionBrush="#FF3D607C" 
+            PreviewMouseDown="mySearchTxt_PreviewMouseDown"
+            Foreground="#FFF0ECEC">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF150B26" Opacity="0.5"/>
+            </TextBox.Background>
+        </TextBox>
+        <Label Content="Find what:" 
+               HorizontalAlignment="Left" 
+               Margin="41,79,0,0" 
+               VerticalAlignment="Top" 
+               Width="83" 
+               FontWeight="Bold" 
+               FontStretch="Expanded" 
+               FontSize="16" 
+               HorizontalContentAlignment="Right" 
+               RenderTransformOrigin="-0.443,0.262" 
+               Height="33" 
+               Foreground="#FFFCFCFC"/>
+        <Button Content="Replace" 
+                HorizontalAlignment="Left" 
+                Margin="430,105,0,0" 
+                VerticalAlignment="Top" 
+                Width="87" 
+                Height="29" 
+                FontSize="14" 
+                FontWeight="Bold"
+                Foreground="#FF090808"
+                Click="Button_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FFEEE4E4" Opacity="0.5"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Replace with:" 
+               HorizontalAlignment="Left" 
+               Margin="10,142,0,0" 
+               VerticalAlignment="Top" 
+               Width="114" 
+               FontWeight="Bold" 
+               FontStretch="Expanded" 
+               FontSize="16" 
+               HorizontalContentAlignment="Right" 
+               RenderTransformOrigin="-0.443,0.262" 
+               Height="33" 
+               Foreground="White"/>
+        <TextBox 
+            HorizontalAlignment="Left" 
+            Name="myReplaceTxt"
+            Height="29" 
+            Margin="140,142,0,0" 
+            TextWrapping="Wrap" 
+            Text="  Type something..." 
+            VerticalAlignment="Top" 
+            Width="251" 
+            FontSize="14" 
+            FontWeight="Bold" 
+            PreviewMouseDown="myReplaceTxt_PreviewMouseDown"
+            RenderTransformOrigin="0.499,0.581" 
+            Foreground="#FFFFF8F8">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF090214" Opacity="0.5"/>
+            </TextBox.Background>
+        </TextBox>
+        <CheckBox Name="CurrentDocumentBox"
+                  Content="Replace all in current document" 
+                  HorizontalAlignment="Left" 
+                  Margin="272,197,0,0" 
+                  VerticalAlignment="Top" 
+                  Height="17" 
+                  Width="205" 
+                  Foreground="#FFFDFDFD"
+                  Checked="CurrentDocument_Checked">
+            <CheckBox.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="AllDocumentsBox"
+                  Content="Replace in all documents" 
+                  HorizontalAlignment="Left" 
+                  Margin="272,223,0,0" 
+                  VerticalAlignment="Top" 
+                  Height="17" 
+                  Width="155" 
+                  Foreground="#FFFDFDFD"
+                  Checked="AllDocuments_Checked">
+            <CheckBox.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+    </Grid>
+</Window>

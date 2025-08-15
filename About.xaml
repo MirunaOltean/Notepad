@@ -1,0 +1,28 @@
+﻿<Window x:Class="Notepad__.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notepad__"
+        mc:Ignorable="d"
+        Title="About" Height="303.91" Width="524.882">
+    <Window.Background>
+        <ImageBrush ImageSource="background.jpg"/>
+    </Window.Background>
+    <Grid Margin="0,0,-6.4,0">
+        <Label Content="Notepad++ " HorizontalAlignment="Left" Margin="187,10,0,0" VerticalAlignment="Top" Height="27" Width="118"/>
+        <Label Content="General    Public    License" HorizontalAlignment="Left" Margin="158,37,0,0" VerticalAlignment="Top" Height="23" Width="165" HorizontalContentAlignment="Center" FontStretch="Expanded"/>
+        <Label Content="Oltean Miruna" HorizontalAlignment="Left" Margin="143,102,0,0" VerticalAlignment="Top" Height="37" Width="211" FontFamily="Segoe Script" FontSize="24"/>
+        <Label Content="10LF303" HorizontalAlignment="Left" Margin="241,139,0,0" VerticalAlignment="Top" Height="34" Width="113" FontFamily="Segoe Script" FontSize="20"/>
+        <Label Content="For more information visit our official page:" HorizontalAlignment="Left" Margin="239,194,0,0" VerticalAlignment="Top" Height="29" Width="276" FontFamily="Tempus Sans ITC" FontSize="14"/>
+        <Label HorizontalAlignment="Left" Margin="291,223,0,0" VerticalAlignment="Top" Height="41" Width="205" FontFamily="Segoe Script" FontSize="14">
+            <Hyperlink NavigateUri="https://intranet.unitbv.ro/autentificare?returnurl=%2f">https://intranet.unitbv.ro</Hyperlink>
+        </Label>
+        <Label HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" Height="81" Width="138">
+            <Label.Background>
+                <ImageBrush ImageSource="Notepad_Logo.png"/>
+            </Label.Background>
+        </Label>
+
+    </Grid>
+</Window>

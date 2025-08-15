@@ -1,0 +1,175 @@
+﻿<Window x:Class="Notepad__.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:notepad__="clr-namespace:Notepad__"
+        mc:Ignorable="d"
+        Title="Notepad++" Height="450" Width="800">
+    <Window.Resources>
+        <notepad__:foregroundConverterTest x:Key="foregroundConverterTest"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Column="0"  Width="Auto" Height="20">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" HorizontalAlignment="Right" Width="140" Click="New_Click"/>
+                <MenuItem Header="_Open" HorizontalAlignment="Right" Width="140" Click="Open_Click"/>
+                <MenuItem Header="_Save" Click="Save_Click"/>
+                <MenuItem Header="_Save As..." Click="SaveAs_Click"/>
+                <MenuItem Header="E_xit" HorizontalAlignment="Left" Width="140" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Search">
+                <MenuItem Header="_Find" Click="Find_Click"/>
+                <MenuItem Header="_Replace" Click="Replace_Click"/>
+                <MenuItem Header="_Replace All..."  Click="ReplaceAll_Click" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem x:Name="About" 
+                          Header="_About" 
+                          HorizontalAlignment="Left" 
+                          Width="140" 
+                          Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Column="1" Margin="1">
+            <Button Name="Cut" 
+                    Click="Cut_Click" 
+                    Margin="0,0,615.2,0" 
+                    Padding="0" 
+                    ScrollViewer.CanContentScroll="True" 
+                    BorderBrush="{x:Null}" >
+                <Button.Background>
+                    <ImageBrush ImageSource="icons8-cut-90.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Name="Copy" 
+                    Click="Copy_Click" 
+                    Margin="26,0,589.2,0" 
+                    BorderBrush="{x:Null}" >
+                <Button.Background>
+                    <ImageBrush ImageSource="icons8-copy-48.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Name="Paste" 
+                    Click="Paste_Click"
+                    Margin="52,0,562.2,0" 
+                    BorderBrush="{x:Null}" >
+                <Button.Background>
+                    <ImageBrush ImageSource="icons8-paste-48.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Name="ConvertUpperCase" 
+                    Click="ConvertUpperCase_Click" 
+                    Margin="116,0,498.2,-9" 
+                    BorderBrush="{x:Null}" 
+                    Content="A" 
+                    FontWeight="Bold" 
+                    FontSize="18"  
+                    VerticalContentAlignment="Top" Background="{x:Null}">
+            </Button>
+            <Button Name="ConvertLowerCase" 
+                    Click="ConvertLowerCase_Click"
+                    Margin="143,0,471.2,-0.2" 
+                    BorderBrush="{x:Null}" 
+                    Content="a" 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    VerticalContentAlignment="Top" 
+                    VerticalAlignment="Top" 
+                    Height="23" 
+                    Background="{x:Null}">
+            </Button>
+            <Button Name="ReadOnly" 
+                    Click="ReadOnly_Click"  
+                    Margin="236,0,334.2,-0.2" 
+                    BorderBrush="{x:Null}" 
+                    Content="ReadOnly" 
+                    FontWeight="Bold" 
+                    VerticalContentAlignment="Top" 
+                    VerticalAlignment="Top" 
+                    Height="23" 
+                    Background="{x:Null}"/>
+            <Label Content="Line: " 
+                   VerticalContentAlignment="Top"
+                   Margin="489,0,115.2,-0.2" 
+                   VerticalAlignment="Top" 
+                   Width="37" 
+                   Height="23" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" 
+                     Height="23" 
+                     Name="Line"
+                     Margin="526,0,0,-0.2" 
+                     TextWrapping="Wrap" 
+                     Text="" 
+                     VerticalAlignment="Top" 
+                     Width="24"/>
+            <Button Content="Go" 
+                    Name="GoToLine"
+                    HorizontalAlignment="Left"
+                    Margin="550,0,0,-0.2" 
+                    VerticalAlignment="Top" 
+                    Width="22" 
+                    Height="23" 
+                    Click="GoToLine_Click"
+                    FontWeight="Bold"/>
+            <Button HorizontalAlignment="Left" 
+                    Margin="84,0,0,-0.2" 
+                    Name="RemoveEmptyLines"
+                    VerticalAlignment="Top" 
+                    Width="27" 
+                    Height="23" 
+                    BorderBrush="{x:Null}"
+                    Click="RemoveEmptyLines_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="icons8-diagonal-lines-50.png"/>
+                </Button.Background>
+            </Button>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+            <TreeView Name="myTreeView" TreeViewItem.Selected="myTreeView_Selected">
+
+            </TreeView>
+        </Grid>
+
+        <TabControl Grid.Row="1" Grid.Column="1" Name="TabMenu" 
+                    ItemsSource="{Binding files}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}">  
+                        <!--<Label Width="6" Height="10"/>-->
+                        </TextBlock>
+                        <Button Click="ExitButton_Click"  Width="15" Height="12" VerticalContentAlignment="Top" Visibility="Visible" BorderThickness="0" Opacity="0.7" HorizontalContentAlignment="Stretch" FlowDirection="LeftToRight" OpacityMask="Black" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="button.png"/>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate >
+                    <TextBox x:Name="textBox2" 
+                             SelectionChanged="textBox_SelectionChanged" 
+                             TextWrapping="Wrap"  
+                             AcceptsReturn="True" 
+                             SpellCheck.IsEnabled="True" 
+                             Language="en-US"
+                             Mouse.MouseMove="textBox2_MouseMove"
+                             Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"
+                             Background="{Binding Path=Text,ElementName=textBox2, 
+                                  Converter={StaticResource foregroundConverterTest}}"></TextBox>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</Window>
